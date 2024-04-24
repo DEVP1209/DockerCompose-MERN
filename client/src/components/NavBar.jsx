@@ -21,6 +21,7 @@ class NavBar extends Component {
         return (
             <Container>
                 <Nav>
+                    <h1 style={{ color: "white" }}>Dev Patel 21BCP392</h1>
                     <Logo />
                     <Links />
                 </Nav>
