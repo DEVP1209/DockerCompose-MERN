@@ -9,6 +9,7 @@
     EXPOSE 3000 
     CMD [ "yarn", "start" ] 
     ```
+        This Dockerfile, located in the client directory, sets up an environment for a client-side application. It begins by using the Node.js 14 slim image as the base. Then, it establishes /usr/src/app as the working directory. Dependencies like package.json and yarn.lock are copied, followed by installing dependencies with yarn install. The application source code is copied over, and port 3000 is exposed. Finally, the default command to start the app is set as yarn start.
     <b>Explanation</b>
     1. **Base Image**: Uses Node.js 14 slim image.
     2. **Working Directory**: Sets work directory to `/usr/src/app`.
@@ -29,6 +30,7 @@
     EXPOSE 5500
     CMD [ "index.js" ] 
     ```
+        This Dockerfile, located in the server directory, configures an environment for a server-side application. Similar to the client Dockerfile, it starts with the Node.js 14 slim image and sets the working directory to /usr/src/app. It copies over package.json and yarn.lock, installs dependencies, and copies the application code. Port 5500 is exposed, and the default command to run is index.js, assuming it's the entry point of the application.
     <b>Explanation</b>
     1. **Base Image**: Utilizes Node.js version 14 slim image.
     2. **Working Directory**: Sets the working directory inside the container to `/usr/src/app`.
@@ -72,6 +74,7 @@
     mongo-data:
         driver: local
     ```
+        The docker-compose.yml file orchestrates the containers for the entire project. It defines three services: react-app, api-server, and mongo. Each service specifies its image, exposed ports, and network configuration. Additionally, it sets up a custom network named mern-app to facilitate communication between containers. A volume named mongo-data is used to persist MongoDB data.
     <b>Explanation</b>
   - **version**: Specifies the version of Docker Compose being used (version 3 in this case).
   
